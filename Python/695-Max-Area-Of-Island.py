@@ -2,7 +2,12 @@ class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         visited = set()
         max_row, max_col = len(grid), len(grid[0])
-        
+        # thoughts:
+        # similar to find each island
+        # but this time to record the area,
+        # every time in dfs find a 1, meaning the area of the curr island
+        # increased by 1
+        #
         def dfs(row, col):
             if (
                 row not in range(max_row)
