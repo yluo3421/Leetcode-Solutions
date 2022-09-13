@@ -1,5 +1,5 @@
 # Leetcode-Solutions  🚀
-backup 202209131408</br>
+backup 202209131459</br>
 These are the questions I have done (from leetcode or not), I want to share them here so people don't have to buy the membership.
 </br>
 The difference betwwen this and what's already on internet is this includes my thinking process and analysis on solving the problems.</br>
@@ -44,7 +44,22 @@ Explanation video maybe coming XD
 <sub>[875 - Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)</sub> | <sub style="color: orange">&#x1F538; Medium</sub> | <sub><div align='center'>✔️</div></sub> | <sub>[Link](https://github.com/yluo3421/Leetcode-Solutions/blob/main/Python/875-Koko-Eating-Bananas.py/)</sub> | <sub><div align='center'>^</div></sub> 
 <sub>[981 - Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/)</sub> | <sub style="color: orange">&#x1F538; Medium</sub> | <sub><div align='center'>✔️</div></sub> | <sub>[Link](https://github.com/yluo3421/Leetcode-Solutions/blob/main/Python/981-Time-Based-Key-Value-Stroe.py/)</sub> | <sub><div align='center'>^</div></sub> 
 
+# Why I started this repo
+</br>
+After finishing more than 200 questions on leetcode. I realize there are so many questions that I have done and I thought I understood later turned out I cannot solve them the second time.</br>
+I realized there might be a lot of other people who has similar situation with me. I decided to make some changes on how I do leetcode problems.</br>
 
+1 - Do not look at answers!</br>
+2 - Treat it like an interview, take 10 min to start basic thoughts.</br>
+3 - If the pseudo code can be generated, check logic and corner cases</br>
+4 - If pseudo code cannot be found, check hints. Sometimes it's an algorithm or data structure should be utilized to solve the problem.</br>
+5 - If no progress in 10 min after hint, watch video explanations and then work it out without looking at answers.</br>
+After taking the strategy above I can feel the progress I made and also gain more confidence. This leads me to share my thoughts during solving the problems, I think these might become a hint for whoever doing the same questions.</br>
+So I started the repo following the same pattern of Neetcode (The author is so good!).</br>
+The repo started about 2 weeks ago and I realize it might be more helpful if I can provide some video explanations. But this is an area I have never touched. The idea of video meeting with whoever interested rises.</br>
+I started to give video meeting link in my Flatiron cohorts. At first two sessions I gave out more easy questions cause I don't want to scare whoever didn't start leetcode. But on the contrast, the speed of my explanation of my thoughts are still fast that makes my classmates not interested in solving this.</br>
+Until recently I found one classmate who can follow my thoughts. That we solved a hard level leetcode question in two hours gave me lots of boosts. Even though the second day he told me the same issue that I went too fast.</br>
+I will keep sharing the leetcode questions I have worked on and try to start video explanation in about two weeks. Have to remind me that I shall try to explain questions like explaining to someone never touched programming.</br>
 <br/>
 &#x1F538;
 &#x1F534;
