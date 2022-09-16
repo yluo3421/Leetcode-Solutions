@@ -1,4 +1,5 @@
 # Leetcode-Solutions  🚀
+backup 202209131459</br>
 These are the questions I have done (from leetcode or not), I want to share them here so people don't have to buy the membership.
 </br>
 The difference between this and what's already on internet is this includes my thinking process and analysis on solving the problems.</br>
@@ -69,7 +70,6 @@ I started to give video meeting link in my Flatiron cohorts. At first two sessio
 Until recently I found one classmate who can follow my thoughts. That we solved a hard level leetcode question in two hours gave me lots of boosts. Even though the second day he told me the same issue that I went too fast.</br>
 I will keep sharing the leetcode questions I have worked on and try to start video explanation in about two weeks. Have to remind me that I shall try to explain questions like explaining to someone never touched programming.</br>
 
-<br/>
 &#x1F538;
 &#x1F534;
 &#128994;
