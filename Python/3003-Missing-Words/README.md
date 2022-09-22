@@ -1,0 +1,1 @@
+![plot](./3003-Missing-Words-Question.png)
