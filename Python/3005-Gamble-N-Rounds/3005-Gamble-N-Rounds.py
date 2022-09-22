@@ -27,3 +27,5 @@ class Solution:
                 count += N - 1
                 N = 0
         return count
+
+
