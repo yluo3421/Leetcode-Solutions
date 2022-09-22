@@ -6,3 +6,7 @@ class Solution:
         nums.sort()
         print(nums)
         return nums[len(nums) - (k)]
+
+        # other thoughts
+        # use minHeap to extract min k-1 one times
+        
