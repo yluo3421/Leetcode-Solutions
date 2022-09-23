@@ -14,6 +14,10 @@ class Solution:
         # occur.        ^ occur += 1
         #.        1 2 2 1 1 
         # occur.  1 2 2 1 1 2 1 2 2
+
+        # at final return, somtimes 1 will be added twice before exiting while loop
+        # it is necessary to check if the second last item is one.
+        # if it is one, reduce the count by one.
         oneOrTwo = True
         count = 0
         occur = 0
@@ -42,4 +46,4 @@ class Solution:
             return count
         else:
             return count - 1 if magical_string[-1] == "1" else count
-        return count
+        
