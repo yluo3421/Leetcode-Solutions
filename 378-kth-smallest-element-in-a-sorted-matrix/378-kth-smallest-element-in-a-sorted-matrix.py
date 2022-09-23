@@ -9,9 +9,9 @@ class Solution:
 
         
         for i in range(k - 1):
-            num, x, y = heapq.heappop(priorityqueue)
-            if y != n - 1:
-                heapq.heappush(priorityqueue, (matrix[x][y + 1], x, y + 1))
+            num, row, col = heapq.heappop(priorityqueue)
+            if col != n - 1:
+                heapq.heappush(priorityqueue, (matrix[row][col + 1], row, col + 1))
         
         return heapq.heappop(priorityqueue)[0]
         
