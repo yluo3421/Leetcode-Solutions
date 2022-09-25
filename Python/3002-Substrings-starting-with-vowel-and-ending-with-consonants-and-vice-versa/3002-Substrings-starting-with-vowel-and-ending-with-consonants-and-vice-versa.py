@@ -49,3 +49,29 @@ class Solution:
             else:
                 ansStartConsonant += vowelFromIdx[i + 1]
         return [ansStartConsonant, ansStartVowel]
+
+"""
+Algo 2: Suffix Array { this could be complex }
+Above algorithm surely cut many branches that we should not 
+explore but algorithm lags in finding the sub-string efficiently.
+We can use suffix array. Suffix array can be build in O(n^2) 
+or O(n*log(n) * log(n) ) or O(nLog(n) Or even O(n) time.
+0 1 2
+example [ a, b, ,c ] -> Suffixes array [ abc, bc, c ]
+ALSO FIND THE last consonant index {this will help us to find 
+the first and last sub-string }
+
+After building a suffix array,
+   Now going through suffix array order see if the suffix starts 
+   with a vowel and the position is less than that of the last consonant 
+   otherwise continue going through the loop. For the first suffix that
+    satisfies the above criteria run a loop and find the first consonant. 
+    That will be the first string.
+
+   For the second string do the same just iterate through the suffix 
+   array from the last and once you hit a vowel, start building the 
+   sub-string from that index to last consonant index
+
+    Time complexity: O(n)
+    Space: O(n)
+"""
