@@ -10,13 +10,14 @@ class TreeNode:
     def __init__(self, val):
         self.val = val
         self.children = []
-class Solution:
-    def calculateFlow(self, node):
-        return 0 if node == None else node.val + sum([self.calculateFlow(child) for child in node.children])
-    def drainagePartition(parent, inputs):
-        nodes = [TreeNode(val) for val in inputs]
-        for idx, pidx in enumerate(parent):
-            if pidx != -1:
-                nodes[pidx].children.append(nodes[idx])
-        flows = [self.calculateFlow(nodes) for i in range(len(nodes))]
-        return min([abs(flows[0] - 2 * f) for f in flows])
+def calculateFlow(node):
+    return 0 if node == None else node.val + sum(calculateFlow(child) for child in node.children)
+    
+def drainagePartition(parent, inputs):
+    nodes = [TreeNode(val) for val in inputs]
+    for idx, parentIdx in enumerate(parent):
+        if parentIdx != -1:
+            nodes[parentIdx].children.append(nodes[idx])
+            
+    flows = [calculateFlow(nodes[i]) for i in range(len(nodes))]
+    return min([abs(flows[0] - 2 * f) for f in flows])

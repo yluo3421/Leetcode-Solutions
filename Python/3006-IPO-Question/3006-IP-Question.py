@@ -1,4 +1,13 @@
- def getUnalottedUsers(bids, totalShares): 
+
+#
+# Complete the 'getResults' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts following parameters:
+#  1. 2D_INTEGER_ARRAY bids
+#  2. INTEGER totalShares
+#
+def getResults(bids, totalShares): 
     #Function getUnalottedUsers    
     #Sorts price(decending) and timestamp(ascending)    
     sorted_bids = sorted(sorted(bids, key = lambda x:x[3] , reverse=False), key = lambda x:x[2] , reverse=True)
