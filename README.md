@@ -64,6 +64,7 @@ Explanation video maybe coming XD
 <sub>[875 - Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)</sub> | <sub style="color: orange">&#x1F538; Medium</sub> | <sub><div align='center'>✔️</div></sub> | <sub>[Link](https://github.com/yluo3421/Leetcode-Solutions/blob/main/Python/875-Koko-Eating-Bananas.py/)</sub> | <sub><div align='center'>^</div></sub> 
 <sub>[977 - Sorted Square Array](https://leetcode.com/problems/squares-of-a-sorted-array/)</sub> | <sub style="color: green">&#128994; Easy</sub> | <sub><div align='center'>✔️</div></sub> | <sub>[Link](https://github.com/yluo3421/Leetcode-Solutions/blob/main/Python/977-Sorted-Square-Array.py/)</sub> | <sub><div align='center'>^</div></sub> 
 <sub>[981 - Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/)</sub> | <sub style="color: orange">&#x1F538; Medium</sub> | <sub><div align='center'>✔️</div></sub> | <sub>[Link](https://github.com/yluo3421/Leetcode-Solutions/blob/main/Python/981-Time-Based-Key-Value-Stroe.py/)</sub> | <sub><div align='center'>^</div></sub> 
+<sub>[1339 - Maximum Product of Splitted Binary Tree](https://leetcode.com/problems/maximum-product-of-splitted-binary-tree/)</sub> | <sub style="color: orange">&#x1F538; Medium</sub> | <sub><div align='center'>✔️</div></sub> | <sub>[Link](https://github.com/yluo3421/Leetcode-Solutions/blob/main/Python/1339-maximum-product-of-splitted-binary-tree/)</sub> | <sub><div align='center'>^</div></sub> 
 
 # Why I started this repo
 </br>
