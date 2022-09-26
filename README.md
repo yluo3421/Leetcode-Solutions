@@ -83,7 +83,7 @@ The repo started about 2 weeks ago and I realize it might be more helpful if I c
 I started to give video meeting link in my Flatiron cohorts. At first two sessions I gave out more easy questions cause I don't want to scare whoever didn't start leetcode. But on the contrast, the speed of my explanation of my thoughts are still fast that makes my classmates not interested in solving this.</br>
 Until recently I found one classmate who can follow my thoughts. That we solved a hard level leetcode question in two hours gave me lots of boosts. Even though the second day he told me the same issue that I went too fast.</br>
 I will keep sharing the leetcode questions I have worked on and try to start video explanation in about two weeks. Have to remind me that I shall try to explain questions like explaining to someone never touched programming.</br>
-
+After the recent OA and interviews, I am much more confident about not looking at answers. I have to gain the ability to solve the question solely.
 <br/>
 &#x1F538;
 &#x1F534;
