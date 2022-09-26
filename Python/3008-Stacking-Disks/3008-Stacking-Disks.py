@@ -1,3 +1,13 @@
+"""
+Given an array of disks, each item in the array is [length, width, height]
+One disk can only be stacked onto another one when
+Its all three dimensions are strictly smaller than the 
+bottom one.
+[2,3,4] can stack on top of [5,7,9]
+[2,3,4] cannot stack on top of [2,1,5]
+Implement the function diskStacking to return the 
+maximum height can be stacked by this array of disks.
+"""
 def diskStacking(disks):
     # Write your code here.
 
