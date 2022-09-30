@@ -52,7 +52,7 @@ class Solution:
         # [2,3]False [2,4]False [2,5]False [2,10]False
         # [3,4]False [3,5]False [3,10]False
         # [4,5]False [4,10]False
-        # [5,10]False
+        # [5,5]False [5,10]False
         
         # [2,3,4]False [2,3,5]False [2,3,10]True
         # [2,4,5]False [2,4,10]true
