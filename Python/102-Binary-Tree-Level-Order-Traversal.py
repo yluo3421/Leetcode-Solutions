@@ -37,3 +37,25 @@ class Solution:
             ans.append(levelVal)
         return ans
         
+
+
+        """
+        Better method
+        """
+        def level_order(self, root: UndirectedGraphNode) -> List[List[int]]:
+        # write your code here
+        if not root:
+            return []
+        
+        res = []
+        queue = deque([root])
+        while queue:
+            currLevel = []
+            n = len(queue)
+            for _ in range(n):
+                currNode = queue.popleft()
+                currLevel.append(currNode.label)
+                for neighbor in currNode.neighbors:
+                    queue.append(neighbor)
+            res.append(currLevel)
+        return res
