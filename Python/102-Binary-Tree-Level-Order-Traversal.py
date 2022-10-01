@@ -42,11 +42,11 @@ class Solution:
         """
         Better method
         """
-        def level_order(self, root: UndirectedGraphNode) -> List[List[int]]:
-        # write your code here
+    def level_order(self, root: UndirectedGraphNode) -> List[List[int]]:
+    # write your code here
         if not root:
             return []
-        
+
         res = []
         queue = deque([root])
         while queue:
