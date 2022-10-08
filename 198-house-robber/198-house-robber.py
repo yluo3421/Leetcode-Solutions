@@ -1,7 +1,7 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
         # use dp to solve
-        # dp array, dp[i] = max(dp[i - 1], dp[i - 2] + dp[i])
+        # dp array, dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])
         dp = [0 for _ in range(len(nums))]
         if len(nums) == 1:
             return nums[0]
