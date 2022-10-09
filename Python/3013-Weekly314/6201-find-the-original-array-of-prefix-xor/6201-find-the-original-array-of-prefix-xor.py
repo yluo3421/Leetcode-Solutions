@@ -9,13 +9,13 @@ class Solution:
         
         # convert all number to binary and then compare the result
         # ans[0] = pref[0]
-        # ans[1] = pref[1] / pref[0]
-        # ans[2] = pref[2] / 
+        # ans[1] = pref[1] / ans[0]
+        # ans[2] = pref[2] / ans[1]
         # after trying several numbers realize that bitwise can be calculated reversed
         ans = [pref[0]]
-        curr = pref[0]
+        
         for i in range(1, len(pref)):
-            curr ^= pref[i]
-            ans.append(curr)
+            ans.append(pref[i] ^ pref[i - 1])
+            
         return ans
             
