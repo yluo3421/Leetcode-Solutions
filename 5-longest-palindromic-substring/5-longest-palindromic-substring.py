@@ -3,6 +3,9 @@ class Solution:
         # thr brutal thoughts is to find palindrome from current char
         # starting from the char to check all odd and even palindrome
         # for odd and even, use two pointer to check
+        
+        # please note that left and right range check needs to be placed
+        # prior to s[left] == s[right] to avoid out of range.
         ans = s[0]
         for i in range(0, len(s) - 1):
             # odd
