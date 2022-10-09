@@ -24,6 +24,9 @@ class Solution:
         
         # its char so we can use in string to check 0123456
         # cannot use global variable
+        # still check backward,
+        # if can be taken as 2 digit number, meaning the options at i
+        # is 2 times dp[i + 2]
         def dfs(i):
             if i in dp:
                 return dp[i]
