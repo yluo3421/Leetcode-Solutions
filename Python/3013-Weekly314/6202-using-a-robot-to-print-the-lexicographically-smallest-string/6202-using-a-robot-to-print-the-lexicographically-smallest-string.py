@@ -9,38 +9,44 @@ class Solution:
         # print t
         # repeat above process untill all char printed
         
-        endChar = s[-1]
-        left, right = 0, 0
+        # create a min arr to record min char from current char to end of s
+        min_arr = []
+        stack = []
+        for i in range(len(s) - 1, -1, -1):
+            stack.append(s[i])
+            if min_arr:
+                if ord(min_arr[-1]) > ord(s[i]):
+                    min_arr.append(s[i])
+                else:
+                    prev_min = min_arr[-1]
+                    min_arr.append(prev_min)
+            else:
+                min_arr.append(s[i])
+        min_arr.reverse()
+        
         t = []
         ans = []
-        # if right < endChar
-        # right += 1
-        # else append substring to t
-        # print t
-        # cabepoqf
-        
-        # bydizefve
-        # 
-        
+        left, right = 0, 0
         while left < len(s) and right < len(s):
-            if ord(s[right]) >= ord(endChar):
+            # find where min char is
+            while s[right] != min_arr[right]:
                 right += 1
+            if right + 1 < len(s):
+                curr_min_idx = right + 1
             else:
-                while left <= right:
-                    t.append(s[left])
-                    left += 1
-                right = left
-                while t:
-                    if ord(t[-1]) < ord(endChar):
-                        ans.append(t.pop())
-                    else:
-                        break
-        
-        if left < right:
-            for i in range(left, right):
-                t.append(s[i])
+                curr_min_idx = -1
+            # push all char till min char to t
+            while left <= right:
+                t.append(s[left])
+                left += 1
+               
+            right = left
+            
+            # compare t[-1] and remaining min char
+            while t and ord(t[-1]) <= ord(min_arr[curr_min_idx]):
+                ans.append(t.pop())
+            
         while t:
             ans.append(t.pop())
         return "".join(ans)
-# some cases not working
             
