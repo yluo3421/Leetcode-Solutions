@@ -9,18 +9,38 @@ class Solution:
         # print t
         # repeat above process untill all char printed
         
-        left, right = 0, 1
-        ans = ""
+        endChar = s[-1]
+        left, right = 0, 0
+        t = []
+        ans = []
+        # if right < endChar
+        # right += 1
+        # else append substring to t
+        # print t
+        # cabepoqf
+        
+        # bydizefve
+        # 
+        
         while left < len(s) and right < len(s):
-            if ord(s[left]) <= ord(s[right]):
+            if ord(s[right]) >= ord(endChar):
                 right += 1
             else:
-                for i in range(right, left - 1, -1):
-                    ans += s[i]
-                left = right + 1
-                right = left + 1
+                while left <= right:
+                    t.append(s[left])
+                    left += 1
+                right = left
+                while t:
+                    if ord(t[-1]) < ord(endChar):
+                        ans.append(t.pop())
+                    else:
+                        break
         
-        if left == len(s) - 1:
-            ans += s[left]
-        return ans
+        if left < right:
+            for i in range(left, right):
+                t.append(s[i])
+        while t:
+            ans.append(t.pop())
+        return "".join(ans)
+# some cases not working
             
