@@ -1,32 +1,47 @@
 class Solution:
     def solve(self, board: List[List[str]]) -> None:
-        ROWS, COLS = len(board), len(board[0])
-
-        def capture(r, c):
-            if r < 0 or c < 0 or r == ROWS or c == COLS or board[r][c] != "O":
+        # similar to island problem
+        # but island problem doesnt require to record surronded region
+        # could use array to record surronded region
+        # one alternative is to flip unsurronded region to T
+        # then flip rest of O, which are surronded region to X
+        # then flip T to O
+        # reason is that unsurronded region only occur at four sides
+        # it's easier to find
+        
+        # check four neighbors of the cell that are on sides
+        # if O flip them to T
+        # if out of range, return
+        ROW = len(board)
+        COL = len(board[0])
+        def flip_unsurronded(row, col):
+            if row < 0 or col < 0 or row >= ROW or col >= COL or board[row][col] != "O":
                 return
-            board[r][c] = "T"
-            capture(r + 1, c)
-            capture(r - 1, c)
-            capture(r, c + 1)
-            capture(r, c - 1)
-
-        # 1. (DFS) Capture unsurrounded regions (O -> T)
-        for r in range(ROWS):
-            for c in range(COLS):
-                if board[r][c] == "O" and (r in [0, ROWS - 1] or c in [0, COLS - 1]):
-                    capture(r, c)
-        print(board)
-        # 2. Capture surrounded regions (O -> X)
-        for r in range(ROWS):
-            for c in range(COLS):
-                if board[r][c] == "O":
-                    board[r][c] = "X"
-        print(board)
-        # 3. Uncapture unsurrounded regions (T -> O)
-        for r in range(ROWS):
-            for c in range(COLS):
-                if board[r][c] == "T":
-                    board[r][c] = "O"
-        print(board)
+            board[row][col] = "T"
+            flip_unsurronded(row - 1, col)
+            flip_unsurronded(row + 1, col)
+            flip_unsurronded(row, col - 1)
+            flip_unsurronded(row, col + 1)
+        
+        # first round to go through the board to 
+        # flip unsurronded to T
+        
+        for row in range(ROW):
+            for col in range(COL):
+                if board[row][col] == "O" and (row in [0, ROW - 1] or col in [0, COL - 1]):
+                    flip_unsurronded(row, col)
+                    
+        # flip rest of O to X
+        for row in range(ROW):
+            for col in range(COL):
+                if board[row][col] == "O":
+                    board[row][col] = "X"
+        
+        # flip T to O
+        for row in range(ROW):
+            for col in range(COL):
+                if board[row][col] == "T":
+                    board[row][col] = "O"
+        return board
+        
                     
