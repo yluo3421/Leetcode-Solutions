@@ -1,17 +1,19 @@
 # Leetcode-Solutions  🚀
-These are the questions I have done (from leetcode or not), I want to share them here so people don't have to buy the membership.
+<p>These are the questions I have done (from leetcode or not), I want to share them here so people don't have to buy the membership.</p>
 </br>
+<p>
 The difference between this and what's already on internet is this includes my thinking process and analysis on solving the problems.</br>
-I found that hints and thoughts are better than just sharing the answers.
+I found that hints and thoughts are better than just sharing the answers. </p>
 
 </br>
 JavaScript answers will be provided later.
 </br>
 Explanation video maybe coming XD
+</br>
+OOD added! 
+<p></p>
 
-## Solutions
-
-
+# Solutions
 <sub>Problem</sub> | <sub>Difficulty</sub>| <sub>Python</sub>  | <sub>Python Solution<sub> | <sub>JavaScript</sub>
 ---- | ---- | ---- | ---- | ----
 <sub>[1 - Two Sum](https://leetcode.com/problems/two-sum/)</sub> | <sub style="color: green">&#128994; Easy</sub> | <sub><div align='center'>✔️</div></sub> | <sub>[Link](https://github.com/yluo3421/Leetcode-Solutions/tree/main/Python/1-two-sum/)</sub> | <sub><div align='center'>[X]()</div></sub> 
