@@ -8,10 +8,7 @@ class UndergroundSystem:
                        
 
     def checkIn(self, id: int, stationName: str, t: int) -> None:
-        if id not in self.checkInDict:
-            self.checkInDict[id] = (stationName, t)
-        else:
-            self.checkInDict[id] = (stationName, t)
+        self.checkInDict[id] = (stationName, t)
         return
         
 
