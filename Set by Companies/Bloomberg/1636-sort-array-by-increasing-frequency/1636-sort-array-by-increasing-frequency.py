@@ -15,3 +15,7 @@ class Solution:
             
         return ans
         
+        """
+        count = collections.Counter(nums)
+        return sorted(nums, key=lambda x: (count[x], -x))
+        """
