@@ -8,7 +8,7 @@ class Solution:
         while i < len(s):
             if s[i] == " ":
                 i += 1
-                continue
+                
             else:
                 j = i
                 while j < len(s):
