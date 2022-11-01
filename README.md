@@ -88,7 +88,7 @@ I realized there might be a lot of other people who has similar situation with m
 5 - If no progress in 10 min after hint, watch video explanations and then work it out without looking at answers.</br>
 After taking the strategy above I can feel the progress I made and also gain more confidence. This leads me to share my thoughts during solving the problems, I think these might become a hint for whoever doing the same questions.</br>
 So I started the repo following the same pattern of Neetcode (The author is so good!).</br>
-The repo started about 2 weeks ago and I realize it might be more helpful if I can provide some video explanations. But this is an area I have never touched. The idea of video meeting with whoever interested rises.</br>
+The repo started about early Sep 2022 and I realize it might be more helpful if I can provide some video explanations. But this is an area I have never touched. The idea of video meeting with whoever interested rises.</br>
 I started to give video meeting link in my Flatiron cohorts. At first two sessions I gave out more easy questions cause I don't want to scare whoever didn't start leetcode. But on the contrast, the speed of my explanation of my thoughts are still fast that makes my classmates not interested in solving this.</br>
 Until recently I found one classmate who can follow my thoughts. That we solved a hard level leetcode question in two hours gave me lots of boosts. Even though the second day he told me the same issue that I went too fast.</br>
 I will keep sharing the leetcode questions I have worked on and try to start video explanation in about two weeks. Have to remind me that I shall try to explain questions like explaining to someone never touched programming.</br>
