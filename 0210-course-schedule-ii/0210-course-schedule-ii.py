@@ -33,12 +33,11 @@ class Solution:
             nonlocal is_cycle
             if is_cycle:
                 return
-            
+            colors[node] = Solution.GRAY
             for neighbor in adj_list[node]:
                 if colors[neighbor] == Solution.GRAY:
                     is_cycle = True
                 elif colors[neighbor] == Solution.WHITE:
-                    colors[neighbor] = Solution.GRAY
                     dfs(neighbor)
             colors[node] = Solution.BLACK
             topological_sorted_order.append(node)
