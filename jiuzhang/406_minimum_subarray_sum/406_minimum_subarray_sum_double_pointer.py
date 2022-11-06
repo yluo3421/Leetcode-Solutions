@@ -10,7 +10,7 @@ class Solution:
     """
     """
     双指针做法
-    O(n^2) Time | O(1) Space
+    O(n) Time | O(1) Space
     """
     def minimum_size(self, nums: List[int], s: int) -> int:
         # write your code here
@@ -18,18 +18,27 @@ class Solution:
             return -1
         
         n = len(nums)
-        minLength = n + 1
+        minLength = float("inf")
         total_sum = 0
-        j = 0
-        for i in range(n):
-            while j < n and total_sum < s:
-                total_sum += nums[j]
-                j += 1
+        end = 0
+        for start in range(n):
+            while end < n and total_sum < s:
+                total_sum += nums[end]
+                end += 1
             if total_sum >= s:
-                minLength = min(minLength, j - i)
-            total_sum -= nums[i]
-        if minLength == n + 1:
+                minLength = min(minLength, end - start)
+            total_sum -= nums[start]
+        if minLength == float("inf"):
             return -1
         return minLength
 
+    """
+    [2,3,1,2,4,3], s = 7
+       ^
+             ^
+    start = 0
+    end = 4     
+    total_sum = 10
+    minLength = 3
+    """
     
