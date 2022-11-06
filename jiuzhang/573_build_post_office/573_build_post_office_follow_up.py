@@ -13,4 +13,4 @@ class GridType:
     WALL = 2
 class Solution:
     """
-    
+    """
