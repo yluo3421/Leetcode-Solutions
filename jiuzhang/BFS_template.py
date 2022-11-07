@@ -1,3 +1,9 @@
+"""
+O(n + m), n nodes, m edges
+Its okay to say O(m) because m >> n most of times
+largest m is n^2 (every two nodes has one edge)
+So worst case O(n^2)
+"""
 queue = collections.deque()
 # if initial state has multiple nodes we put in more into dict
 # distance from this node to start point
