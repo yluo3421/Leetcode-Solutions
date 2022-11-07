@@ -29,6 +29,11 @@ class Solution:
         Use a similar thoughts as preorder
         First check if two subtree's root has the same value
         Then check if their children follow the same pattern
+
+        Preorder, Inorder, Postorder can all be used here
+        But preorder is the best because we check root val
+        If root value are different we dont need to check 
+        sub tree any more.
         """
         if not root:
             return True
