@@ -14,6 +14,7 @@ class Solution:
     """
     @param root: root of the given tree
     @return: whether it is a mirror of itself 
+    
     """
     def is_symmetric(self, root: TreeNode) -> bool:
         # Write your code here
@@ -24,6 +25,10 @@ class Solution:
     # should be reflected as # in level order traversal
         
         """
+        O(n) Time | O(h) Space
+        Recursion times * Recursion each time = (n/2) * O(1)
+        Recursion depth * each recursion space
+
         The actual problem is to check if the two child
         tree are symmetrical.
         Use a similar thoughts as preorder
