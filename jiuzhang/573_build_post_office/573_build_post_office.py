@@ -55,3 +55,5 @@ class Solution:
         if x < 0 or x >= n or y < 0 or y >= m:
             return False
         return grid[x][y] in [GridType.EMPTY,GridType.HOUSE]
+
+

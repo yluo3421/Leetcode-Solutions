@@ -18,12 +18,15 @@ class Solution:
     """
     def is_symmetric(self, root: TreeNode) -> bool:
         # Write your code here
-    # thoughts:
+    # wrong thoughts:
     # BFS for level order, if each level is palindrome
     # then its symmetric tree.
     # this is a wrong method. None node
     # should be reflected as # in level order traversal
-        
+    
+    # left,root, right and right root left to generate
+    # the order of the tree, if they are palindrome.
+    # This will not prove symmetric
         """
         O(n) Time | O(h) Space
         Recursion times * Recursion each time = (n/2) * O(1)

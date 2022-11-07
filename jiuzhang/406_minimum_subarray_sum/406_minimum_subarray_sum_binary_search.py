@@ -20,7 +20,13 @@ class Solution:
         minLength = float("inf")
         prefix_sum = self.get_prefix_sum(nums)
         for start in range(n):
+            # find the end pointer, which makes sum of nums from start to end
+            # is less than s
+            # nums[end] is included in sum, end is idx for nums
+            # end is not idx for prefixSum
             end = self.getEndOfSubarray(prefix_sum, start, s)
+            # because returned right might not meet requirement
+            # we need to double check the end returned
             if prefix_sum[end + 1] - prefix_sum[start] >= s:
                 minLength = min(minLength, end - start + 1)
         if minLength == float("inf"):
@@ -48,8 +54,10 @@ class Solution:
             else:
                 # if sum of nums from start to mid < s, discard left part
                 left = mid
+        # if left pointer satisfies, return left first, because it is shorter subarray
         if prefix_sum[left + 1] - prefix_sum[start] >= s:
             return left
+        # if left not good, return right(right might not satisfy either)
         return right
 
     
