@@ -3,6 +3,7 @@ class Solution:
     @param s: a string
     @param k: an integer
     @return: the number of substrings there are that contain at least k distinct characters
+    O(n) Time | O(1) Space
     """
     def k_distinct_characters(self, s: str, k: int) -> int:
         # Write your code here
