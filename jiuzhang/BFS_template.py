@@ -1,5 +1,8 @@
 queue = collections.deque()
-distance = {node: 0} # distance from this node to start point
+# if initial state has multiple nodes we put in more into dict
+# distance from this node to start point
+# also record if we have visited the node
+distance = {node: 0} 
 
 while queue:
     node = queue.popleft()
