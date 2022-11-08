@@ -4,7 +4,8 @@ Its okay to say O(m) because m >> n most of times
 largest m is n^2 (every two nodes has one edge)
 So worst case O(n^2)
 """
-queue = collections.deque()
+
+queue = collections.deque([node])
 # if initial state has multiple nodes we put in more into dict
 # distance from this node to start point
 # also record if we have visited the node
