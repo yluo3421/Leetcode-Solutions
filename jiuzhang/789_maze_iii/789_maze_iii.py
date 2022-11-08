@@ -4,8 +4,9 @@ from typing import (
 from xmlrpc.server import DocXMLRPCRequestHandler
 
 class MazeGridType:
-        SPACE = 0
-        WALL = 1
+    SPACE = 0
+    WALL = 1
+
 class Solution:
     """
     @param maze: the maze
@@ -55,8 +56,9 @@ class Solution:
         
         hole = (hole[0], hole[1])
 
-        {distance, x, y, path}
+        
         queue = collections.deque([(ball[0], ball[1])])
+        # (x, y) => (distance, path)
         distance = {(ball[0], ball[1]): (0, "")}
 
         while queue:
@@ -66,18 +68,24 @@ class Solution:
             for direction in Solution.DIRECTION_HASH:
                 if path and path[-1] == direction:
                     continue
-
+                # use kick ball to find the stop location
                 new_x, new_y = self.kick_ball(x, y, direction, maze, hole)
                 new_dist = dist + abs(new_x - x) + abs(new_y - y)
                 new_path = path + direction
+                # if the new coordinates has more value then what previously stored
+                # skip and go to next
                 if (new_x, new_y) in distance and distance[(new_x, new_y)] <= (new_dist, new_path):
                     continue
-                    
+                
+                # we may find hole already but needs to look for even shorted path
                 queue.append((new_x, new_y))
                 distance[(new_x, new_y)] = (new_dist, new_path)
+        if hole in distance:
+            return distance[hole][1]
+        return "impossible"
     
     def kick_ball(self, x, y, direction, maze, hole):
-        dx, dy in Solution.DIRECTION_HASH[direction]
+        dx, dy = Solution.DIRECTION_HASH[direction]
         while (x, y) != hole and not self.is_wall(x, y, maze):
             x += dx
             y += dy
@@ -89,4 +97,4 @@ class Solution:
     def is_wall(self, x, y, maze):
         if not (x in range(len(maze)) and y in range(len(maze[0]))):
             return True
-        return maze[x][y] == MazeGridType.Wall
+        return maze[x][y] == MazeGridType.WALL
