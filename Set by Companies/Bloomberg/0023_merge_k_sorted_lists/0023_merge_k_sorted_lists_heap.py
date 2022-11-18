@@ -12,7 +12,7 @@ That is why we need index i in the second place.
 
 Then we run a cycle until the heap is empty. On every step, we pop out 
 the smallest node and attach it to the result. Right away we push to
- the heap the next node.
+the heap the next node.
 
 Time: O(k * n * log(k)) - scan and manipulation with heap
 Space: O(k) - for the heap
