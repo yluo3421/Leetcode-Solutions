@@ -50,7 +50,7 @@ class Solution:
     def is_valid(self, x, y, n, m, is_land):
         if not (0 <= x < n and 0 <= y < m):
             return False
-        if (x, y) in is_land:
+        if (x, y) not in is_land:
             return False
         return True
         
