@@ -28,3 +28,9 @@ class Solution:
                 heapq.heappush(priorityqueue, (matrix[x][y + 1], x, y + 1))
         
         return heapq.heappop(priorityqueue)[0]
+        """
+        Challenge
+        If k << n^2, what's the best algorithm?
+        How about k ~ n^2?
+        maxHeap
+        """
