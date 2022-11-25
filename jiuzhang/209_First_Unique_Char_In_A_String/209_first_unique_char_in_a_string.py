@@ -6,6 +6,10 @@ class Solution:
     def first_uniq_char(self, str: str) -> str:
         # Write your code here
         # method 2
+        # push (char, i) into queue
+        # dict to record {char: freq} if char exist, make freq -1 meaning duplicates
+        # while queue[0] char in posistion is -1, pop out
+        # retrun q[0][0]
         position = dict()
         q = collections.deque()
         n = len(str)
