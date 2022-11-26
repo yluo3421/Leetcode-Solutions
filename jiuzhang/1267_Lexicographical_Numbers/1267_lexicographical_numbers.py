@@ -28,7 +28,7 @@ class Solution:
 
 
         """
-        Time O(N) | Space O(1)  
+        Time O(N) | Space O(N)  
         """
         def dfs(temp, n, sol):
             if (temp > n):
