@@ -26,9 +26,7 @@ class UndergroundSystem:
         if (startStation, endStation) not in self.tripDict:
             return
         else:
-            
-            totalTime = self.tripDict[(startStation, endStation)][0]
-            count = self.tripDict[(startStation, endStation)][1]
+            totalTime, count = self.tripDict[(startStation, endStation)]
             return totalTime/count
 
 # Your UndergroundSystem object will be instantiated and called as such:
