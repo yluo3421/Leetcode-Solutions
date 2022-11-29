@@ -10,9 +10,21 @@ class Node:
 
 class Solution:
     def flatten(self, head: 'Optional[Node]') -> 'Optional[Node]':
-        # similar to binary tree
-        # whenever there is a child tree, go for child
-        # the next will be implemented later
+        # basically whenever we see a child,
+        # we can save next as temp, insert child to curr.next
+        # then assign temp to end of child
+        # to ensure all children going back to where they supposed to be
+        # I want to use a stack to store them
+        # the idea is like this
+        # putting the root into stack
+        # wait we need a dummy node to hold the new one
+        # lets call dummy node curr
+        # then the stack.pop() is last
+        # we first put last.next into stack, then last.child, because we want
+        # to prioritize children's case
+        # after then we will assign curr.next as last, last.prev = curr
+        # most importantly, last.child = None
+        # finally update curr to = last
         if not head:
             return head
         root = head
@@ -32,5 +44,5 @@ class Solution:
         res = dummy.next
         res.prev = None
         return res
-            
-            
+
+        
