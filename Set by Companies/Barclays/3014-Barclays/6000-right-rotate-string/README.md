@@ -1,4 +1,0 @@
-Charlie has a magic mirror. The mirror shows right rotated versions of a given word
-</br>To generate different right-rotations of a word, write the word in a circle in clockwise order, then startreading from any given character in clockwise order till you have covered all the characters
-</br>For example, in the word“sample”,if we start with ‘p’we get the right rotated word as“plesam”. There are six such right rotations of “sample” including itself.
-<br/>The inputs to the function isSameReflectionconsists of two strings, word1 and word2.The function returns1 if word1 and word2are right rotations of the same word and -1 if theyare not. Both word1 and word2 will strictly contain characters between ‘a’-’z’ lower case letters.
