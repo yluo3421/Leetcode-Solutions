@@ -21,6 +21,7 @@ class Solution:
             else:
                 stack.append([char, 1])
         return "".join([k * c for c, k in stack])
+        
                     
                     
                 
