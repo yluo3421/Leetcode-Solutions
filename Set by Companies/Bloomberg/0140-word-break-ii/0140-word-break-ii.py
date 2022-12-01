@@ -22,12 +22,12 @@ class Solution:
                 ans.append(" ".join(path))
                 return
             for j in range(i + 1, len(s) + 1):
-                if s[i:j] in wordSet:
+                if s[i:j] in wordDict:
                     path.append(s[i:j])
                     helper(j, path)
                     path.pop()
         ans = []
-        wordSet = set(wordDict)
+        
         path = []
         helper(0, path)
         return ans
