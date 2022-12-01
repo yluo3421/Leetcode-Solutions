@@ -18,9 +18,22 @@ class Solution:
     """
     def add_lists2(self, l1: ListNode, l2: ListNode) -> ListNode:
         # write your code here
-        # transfer to int then add together
-        # the result to str
-        # take each char and push back to as linkedlist
+        """
+        The first method that comes to me is simple
+        I will transfer the l1 and l2 to integer and
+        then add the two integer together.
+        Afterwards the result will be transformed into string
+        Finally the string will be retruned into a newly created
+        linked list
+        Time O(n+m) | Space O(n+m)
+        Is this the method you are looking for?
+        I have see questions regrading adding two linked list
+        but the number comes in opposite order
+        That way we can use digit addition and carry to do the thing
+        This reminds me that I can reverse both linked lists
+        and use digit and carry method.
+
+        """
         s1, s2 = 0, 0
         while l1:
             s1 = s1 * 10 + l1.val
