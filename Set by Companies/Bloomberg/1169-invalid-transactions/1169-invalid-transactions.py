@@ -31,7 +31,7 @@ class Solution:
                     
                 if any([abs(int(x) - int(time)) <= 60 for x in v[name]]):
                     output.append(t)
-                    break;
+                    break
                 
         
         return output
@@ -40,7 +40,7 @@ class Solution:
 
     
     
-class Solution:
+# class Solution:
 #     def invalidTransactions(self, transactions: List[str]) -> List[str]:
 #         """
 #         go through transactions and find those with same name,
@@ -70,6 +70,4 @@ class Solution:
 #                     break
                 
                     
-#         return ans  
-
-                        
+#         return ans 
