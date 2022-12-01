@@ -1,4 +1,7 @@
 class Solution:
+    """
+    Time O((R*C)^2) | Space O((R*C))
+    """
     def candyCrush(self, board: List[List[int]]) -> List[List[int]]:
         """
         First we need to find all candies that can be removed
