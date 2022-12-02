@@ -1,13 +1,29 @@
 class Solution:
     def triangleNumber(self, nums: List[int]) -> int:
-        # take all combinations
-        # and sort and check if they match a + b > c
-        # this method exceeds time limit
+        """
+        thoughts:
+        the brutal force is to go through nums by three times
+        find three numbers and make sure they can form a triangle
+        That will be O(n^3)
+        To optimize this, I think I can sort the source array
+        first, this will give me chance to use binary serach.
+        Which will improve it to O(n^2log(n))
+        Because its sorted, if we found pair (i,j)
+        The third one we found that nums[k] > nums[i] + nums[j]
+        everyting betweein nums[j+1:k] are all answers
+        we can add total count by k - j - 1
+        
+        Loop of k and j will be executed O(n^2) times in total, 
+        because, we do not reinitialize the value of k
+        for a new value of j
+        chosen(for the same i). Thus the complexity will be 
+        O(nlogn + n^2)
+        """
         nums.sort()
         count = 0
         for i in range(len(nums) - 2):
-            k = i + 2
             j = i + 1
+            k = i + 2
             while j < len(nums) - 1 and nums[i] != 0:
                 while k < len(nums) and nums[i] + nums[j] > nums[k]:
                     k += 1
@@ -15,31 +31,3 @@ class Solution:
                 j += 1
         return count
         
-        
-        """
-        def combination(nums, k):
-            ans = []
-            def helper(ans, nums, combination, k):
-                if len(combination) == k:
-                    ans.append(combination)
-                    return
-                for i in range(len(nums)):
-                    
-                    
-                    helper(ans, nums[i+1:], combination+[nums[i]], k)
-            
-            helper(ans, nums, [], k)
-            return ans
-        
-        all_combinations = combination(nums, 3)
-        
-        ans = []
-        for comb in all_combinations:
-            comb.sort()
-            if comb[0] + comb[1] > comb[2]:
-                ans.append(comb)
-        return len(ans)
-        """
-        
-    
-    
