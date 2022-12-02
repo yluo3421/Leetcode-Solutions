@@ -16,6 +16,7 @@ class Solution:
         idx_to_remove = set()
         stack = []
         for i, char in enumerate(s):
+            # != ( or != ) not working
             if char not in "()":
                 continue
             if char == "(":
