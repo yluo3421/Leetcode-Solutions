@@ -11,6 +11,28 @@ class MaxStack:
         idx for this
         self.stack = [5,1,5]
         self.max_idx = [(5, [0]),(5,[0]),(5,[0,-2])]
+        This way when I popmax I still cant do it
+        What should I do
+        The solution might be switch this with the end
+        Or I can delete later. That way I need to check more
+        in other methods
+        I will maintain a unique ID and seperate heap
+        Whenever we run an operation on stack or heap
+        , check the id of stack's or heap's top element
+        If it is an ID in removed set, we need to remove it until
+        the top element ID not in removed set
+        
+        To summarize:
+        top(), return the value of the top of stack
+        peekMax() return the value of the top element in heap
+        pop(), remove the top element of stack, put ID into removed
+        return its value
+        popMax(), remove the top element of heap, put ID into removed
+        and return its value
+        push O(logn)
+        pop/popmax O(logn)
+        top O(1)
+        peekMax O(logn)
         """
         self.stack = [] 
         self.heap = []
