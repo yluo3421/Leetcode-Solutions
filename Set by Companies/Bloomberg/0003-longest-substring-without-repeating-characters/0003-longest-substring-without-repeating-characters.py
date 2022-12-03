@@ -1,27 +1,36 @@
-class Solution(object):
-    def lengthOfLongestSubstring(self, s):
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
         """
-        :type s: str
-        :rtype: int
+        Thoughts:
+        The brutal force is to check all chars
+        That will take about O(n^3) time
+        I want to use a sliding window method,
+        that right pointer will move when no duplicates
+        if there is a duplicate, left will start to move
+        until right pointer char count reduce to 1
+        This way I can do it in O(n) because the two pointer
+        are moving seperately.
+        The worst case is O(2n) where each char visited by
+        left and right pointer.
+        Space O(min(m, n))
+        window needs O(k) where k is size of dict
+        dict has upper bound of size of string size n and
+        size of charset/alphabet m.
         """
-        # thoughts
-        # loop through the s and push char into set
-        # record curr max
-        # use left and right pointer, move left while meet duplicate
-        # the left will move until no duplicates
-        # the right will move until duplicate
-        
+        chars = defaultdict(int)
         left, right = 0, 0
-        char_set = set()
-        max_length = 0
-        for right in range(len(s)):
-            while s[right] in char_set:
-                char_set.remove(s[left])
-                left += 1
-            char_set.add(s[right])
-            max_length = max(max_length, right - left + 1)
-        return max_length
-            
-                
+        ans = 0
+        n = len(s)
         
+        while right < n:
+            right_char = s[right]
+            chars[right_char] += 1
+            while chars[right_char] > 1:
+                left_char = s[left]
+                chars[left_char] -= 1
+                left += 1
             
+            ans = max(ans, right - left + 1)
+            right += 1
+        return ans
+        
