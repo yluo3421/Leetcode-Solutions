@@ -1,9 +1,11 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        # use dict to record freq of each char
-        char_dict = collections.Counter(s)
-        for idx, char in enumerate(s):
-            if char_dict[char] == 1:
-                return idx
+        # if confirmed lower case, an array will be faster
+        
+        count = collections.Counter(s)
+        
+        # find the index
+        for idx, ch in enumerate(s):
+            if count[ch] == 1:
+                return idx     
         return -1
-            
