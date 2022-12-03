@@ -23,8 +23,7 @@ class Solution:
         
         ans = []
         for dividend, divisor in queries:
-            print(dividend)
-            print(divisor)
+            
             if dividend not in graph or divisor not in graph:
                 ret = -1.0
             elif dividend == divisor:
