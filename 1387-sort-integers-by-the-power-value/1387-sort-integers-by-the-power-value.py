@@ -16,7 +16,7 @@ class Solution:
             y, result = x, 0
             while x > 1 and x not in dp:
                 result += 1
-                if x%2:
+                if x % 2:
                     x = 3*x + 1
                 else:
                     x //= 2
