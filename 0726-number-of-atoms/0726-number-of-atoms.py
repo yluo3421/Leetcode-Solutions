@@ -1,5 +1,25 @@
 class Solution:
     def countOfAtoms(self, formula: str) -> str:
+        """
+        Ahhhh, I wasn't good at chemistry in high school
+        I think stack is a good tool to use to solve this
+        chemistry problem.
+        We will go through each char in the formula
+        if its (, we can insert another counter to store
+        whatever formula inside
+        then at ), we will pop out the last Counter
+        and multiply by the number comes behind the )
+        Add the element and multiplicity
+        to the original Counter in stack
+        
+        If there is no (, then we should first
+        find the the element, then find out its
+        multiplicity. Add the element and multiplicity
+        to the original Counter in stack
+        
+        At the end, we combine all element and multiplicity
+        in the original Counter and return
+        """
         n = len(formula)
         stack = [collections.Counter()]
         i = 0
