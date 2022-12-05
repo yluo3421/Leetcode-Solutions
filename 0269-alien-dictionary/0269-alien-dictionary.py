@@ -11,6 +11,7 @@ class Solution:
         the first thought I have is that I can check all words ith 
         char, that will tell me some order.
         And it can only be told when the prefix are the same
+        The only rule we can draw is the one based on the first difference between the two words.
         ["wrt","wrf","er","ett","rftt"]
         1st letter tells me
         [wweer] -> [w,e,r]
@@ -24,6 +25,10 @@ class Solution:
         I can use topologicial sort to find out their order and
         if at the end the sorted order output doesnt have the length
         of unique char in words, meaning there is some loop.
+        
+        Time O(C)
+        Worst case is that in the part we find first and second word and
+        check for every letter of every word
         """
         adj_list = defaultdict(set)
         in_degree = Counter({c: 0 for word in words for c in word})
