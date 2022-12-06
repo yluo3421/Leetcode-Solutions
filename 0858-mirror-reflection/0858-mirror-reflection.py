@@ -22,6 +22,19 @@ class Solution:
             odd     odd     1
             even    odd     0
         thus we need to find the lowest common multiple
+        If p and q are both even, they are the multiples of 2, so we can divide p and q by 2 to reduce our equation.
+        for example p = 2*2*x q = 2*2*y
+        m*p = n*q => m*(2*2*x) = n*(2*2*y)
+                    => m*x = n*y
+        If p is even then q is odd, and because m*p = n*q then n should be even
+        numer of reflecting times is even means the ray ends at the top-left corner which could be only the corner 2
+        
+        If q is even then p is odd, and because m*p = n*q then m should be even
+=> the number of stacked boxes is even means the current box is the flipped version of the original box so the top-right corner should be only 0
+
+        else, it ends at 1
+        
+        
         Space Complexity is obviously O(1)
         Time Complexity is O(min(log(p), log(q)) 
         but because q <= p so the worst case is only : O(log(q))
