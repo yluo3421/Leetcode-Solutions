@@ -7,6 +7,7 @@ class Solution:
     """
     @param grid: a boolean 2D matrix
     @return: an integer
+    BFS
     """
     def num_islands(self, grid: List[List[bool]]) -> int:
         # write your code here
