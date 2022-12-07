@@ -18,14 +18,30 @@ class Solution:
             in the memo corresponding to this l and r instead of 
             performing from step 1.
         """
-        cuts.extend([0, n])  # add 2 fake cuts as the boundary of the first cut
         cuts.sort()
-        @functools.lru_cache(None)
-        def f(i, j):
-            if i + 1 >= j: return 0
-            """
-            cuts[j] - cuts[i] # cost of the first cut between ith and jth cut
-                + min((f(i, k) + f(k, j) for k in range(i+1, j)), default=0)  # go through all the cuts as the first cut
-            """
-            return cuts[j] - cuts[i] + min((f(i, k) + f(k, j) for k in range(i+1, j)), default=0)
-        return f(0, len(cuts)-1)
+        A = [0] + cuts + [n] # add 2 fake cuts as the boundary of the first cut
+        
+        def dfs(i, j, A, dp):
+            if i > j:
+                return 0
+			# check the memoization cache
+            if dp[i][j] != -1:
+                return dp[i][j]
+            
+            mini = float("inf")
+            for k in range(i, j+1):
+                cost = A[j+1]-A[i-1] + dfs(i, k-1, A, dp) + dfs(k+1, j, A, dp)
+                mini = min(cost, mini)
+            
+			# set the computed value so we don't have to recompute
+            dp[i][j] = mini
+            return mini
+                
+		# build our len(cuts)*len(cuts) 2D array cache
+        dp = [[-1 for j in range(len(cuts)+1)] for i in range(len(cuts)+1)]
+        
+        res = dfs(1, len(cuts), A, dp)
+        return res
+        
+    
+    
