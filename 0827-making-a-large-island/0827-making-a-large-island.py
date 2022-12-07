@@ -10,31 +10,6 @@ class Solution:
         The answer will be the size of the whole grid
         This method has a time complexity of O(n^4) SpaceO(n^2)
         """
-        n = len(grid)
-        directions = [[1,0],[-1,0],[0,-1],[0,1]]
-        islands, paint_count, ans = Counter(), 2, 0
-        
-        def dfs(paint_count, i, j):
-            if not 0 <= i < n or not 0 <= j < n or grid[i][j] != 1: return
-            islands[paint_count] += 1
-            grid[i][j] = paint_count
-            for x, y in directions: 
-                dfs(paint_count, x+i, y+j)
-                
-        for x, y in product(range(n), range(n)):
-            if grid[x][y] == 1:
-                dfs(paint_count, x, y)
-                paint_count += 1
-                
-        for x, y in product(range(n), range(n)):
-            if grid[x][y] != 0: continue
-            neighbors = set()
-            for dx, dy in directions:
-                if 0 <= x + dx < n and 0 <= y + dy < n and grid[x+dx][y+dy] != 0:
-                    neighbors.add(grid[x+dx][y+dy])
-            ans = max(ans, sum(islands[i] for i in neighbors) + 1)
-            
-        return ans if ans != 0 else n*n
 #         n = len(grid)
 
 #         def find_curr_island(r, c):
@@ -63,7 +38,7 @@ class Solution:
 #                     grid[r][c] = 0
 
 #         return ans if has_zero else n*n
-    """
+        """
         To make this time complexity better.
         One idea that I have right now is to see them as
         connected components.
@@ -83,6 +58,31 @@ class Solution:
         that for example left neighbor and upper neighbor 
         are the same island). Then we evaluate sum of sizes 
         of all neighbours and choose the biggest one.
-    """
+        """
+        n = len(grid)
+        directions = [[1,0],[-1,0],[0,-1],[0,1]]
+        islands, paint_count, ans = Counter(), 2, 0
+
+        def dfs(paint_count, i, j):
+            if not 0 <= i < n or not 0 <= j < n or grid[i][j] != 1: return
+            islands[paint_count] += 1
+            grid[i][j] = paint_count
+            for x, y in directions: 
+                dfs(paint_count, x+i, y+j)
+
+        for x, y in product(range(n), range(n)):
+            if grid[x][y] == 1:
+                dfs(paint_count, x, y)
+                paint_count += 1
+
+        for x, y in product(range(n), range(n)):
+            if grid[x][y] != 0: continue
+            neighbors = set()
+            for dx, dy in directions:
+                if 0 <= x + dx < n and 0 <= y + dy < n and grid[x+dx][y+dy] != 0:
+                    neighbors.add(grid[x+dx][y+dy])
+            ans = max(ans, sum(islands[i] for i in neighbors) + 1)
+
+        return ans if ans != 0 else n*n
         
     
