@@ -1,6 +1,8 @@
 class Solution:
     def minCost(self, n: int, cuts: List[int]) -> int:
-        cuts.extend([0, n]); cuts.sort(); m = len(cuts)        
+        cuts.extend([0, n]); 
+        cuts.sort(); 
+        m = len(cuts)        
         dp = [[0] * m for _ in range(m)]
         for l in range(2, m):
             for i in range(m-l):
