@@ -11,7 +11,7 @@ class Solution:
         
         1. create adjacent_list useing edges
         2. use ans array for each node, intialize 0
-        3. dfs(node, parent, adj_list, labels, ans) returns an array
+        3. dfs(node, parent) returns an array
         which stores the count of each label in the node's subtree
         
         Initialize an array nodeCounts to 
