@@ -1,5 +1,8 @@
 from functools import lru_cache
 class Solution:
+    """
+    Use self build cache
+    """
     cache = {0:0, 1:1, 2:2}
 
     #Solve the Puzzle (Top-Down Recursive Search)
