@@ -1,10 +1,25 @@
 from functools import lru_cache
 class Solution:
+    cache = {0:0, 1:1, 2:2}
+
+    #Solve the Puzzle (Top-Down Recursive Search)
     def minDays(self, n: int) -> int:
+        #Check if the Result is in the Cache
+        if n not in self.cache:
+            #Compute the Result
+            self.cache[n] = 1 + min(self.minDays(n//3) + n%3, self.minDays(n//2) + n%2)
+
+        #Return the Result from the Cache
+        return self.cache[n]
+    
+    def minDays2(self, n: int) -> int:
         """
         From the actions we can take,
         I think for a certain number, k, of orange
         there is three ways to reach that amount of orange
+        We can calculate three different ans
+        based on the path we took, and find out the min
+        and pased to next level.
         
         minDays(i) = min(1+minDays(i-1), 1+minDay(i//2), 1 + minDay(i//3)),                 minDay(i-1) is too slow as only eat 1 orange per day. 
         we need to be greedy to fininsh the orange in minimum days
@@ -21,13 +36,8 @@ class Solution:
         plus in order to be able to get to path /3, 
         we need i%3 days to reach that path
         """
-        @lru_cache()
-        def minDays(n: int) -> int:
-            if n==1: return 1
-            if n==2: return 2
-            if n==3: return 2
-            return min(1 + n%2 + minDays(n//2), 1+n%3 + minDays(n//3))
-        return minDays(n)
+    
+
         
         @lru_cache
         def dfs(n):
@@ -45,9 +55,13 @@ class Solution:
         
         return dfs(n)
     
-        @lru_cache()
-        def minDays(n: int) -> int:
-            if n==1: return 1
-            if n==2: return 2
-            if n==3: return 2
-            return min(1 + n%2 + minDays(n//2), 1+n%3 + minDays(n//3))
+    """
+    The best answer using lru_cache
+    @lru_cache()
+    def minDays(self, n: int) -> int:
+        if n==1: return 1
+        if n==2: return 2
+        if n==3: return 2
+        return min(1 + n%2 + minDays(n//2), 1+n%3 + minDays(n//3))
+    return minDays(n)
+    """
