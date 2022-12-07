@@ -1,16 +1,79 @@
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        """
+        With the example 1
+        hit - hot - dot - dog - log
+                    lot         cog
+             
+        The idea is to use bfs and find the next step words
+        and keep searching until the endWord found.
+        To efficiently find the intermediate nodes that is
+        differ by one letter, we need to do some pre-move
+        on wordList.
+        Assume we already have the dicitoanry of pre-processed
+        wordList, this way we can access it by O(1)
+        We use a tuple of beginWord and 1, 1 represents level
+        of search, this way we can find the shortest path
+        Visited set needed to avoid loop
+        With BFS and queue, we take the first element in queue
+        curr_word
+        find all its transformation and find out its next steps
+        and add them to queue with level + 1
+        Eventually found the endWord and return path length
+        Time O(n^2 * k) n length of word, k is total number of words in input wordList
+        Space O(n^2 * k)
+        """
+        if (
+            endWord not in wordList
+            or not endWord
+            or not beginWord
+            or not wordList
+        ):
+            return 0
+        
+        n = len(beginWord)
+        # build the map of intermediate word
+        adjacent_dict = defaultdict(list)
+        for word in wordList:
+            for i in range(n):
+                adjacent_dict[word[:i] + "*" + word[i + 1:]].append(word)
+        
+        queue = collections.deque([(beginWord, 1)])
+        visited = {beginWord: True}
+        while queue:
+            current_word, level = queue.popleft()
+            for i in range(n):
+                intermediate_word = current_word[:i] + "*" + current_word[i + 1:]
+                for word in adjacent_dict[intermediate_word]:
+                    if word == endWord:
+                        return level + 1
+                    if word not in visited:
+                        visited[word] = True
+                        queue.append((word, level + 1))
+                adjacent_dict[intermediate_word] = []
+        return 0
+        
 """
         Double BFS
         The algorithm is very similar to the standard BFS based approach we saw earlier.
 
-The only difference is we now do BFS starting two nodes instead of one. This also changes the termination condition of our search.
+The only difference is we now do BFS starting two nodes instead of one. 
+This also changes the termination condition of our search.
 
-We now have two visited dictionaries to keep track of nodes visited from the search starting at the respective ends.
+We now have two visited dictionaries to keep track of nodes visited from 
+the search starting at the respective ends.
 
-If we ever find a node/word which is in the visited dictionary of the parallel search we terminate our search, since we have found the meet point of this bidirectional search. It's more like meeting in the middle instead of going all the way through.
+If we ever find a node/word which is in the visited dictionary of the 
+parallel search we terminate our search, since we have found the meet point 
+of this bidirectional search. It's more like meeting in the middle instead 
+of going all the way through.
 
-Termination condition for bidirectional search is finding a word which is already been seen by the parallel search.
+Termination condition for bidirectional search is finding a word which 
+is already been seen by the parallel search.
 
-The shortest transformation sequence is the sum of levels of the meet point node from both the ends. Thus, for every visited node we save its level as value in the visited dictionary.
+The shortest transformation sequence is the sum of levels of the meet 
+point node from both the ends. Thus, for every visited node we save its 
+level as value in the visited dictionary.
         
         """
 from collections import defaultdict
@@ -83,61 +146,11 @@ class Solution(object):
                 return ans
 
         return 0
-class Solution:
-    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
-        """
-        With the example 1
-        hit - hot - dot - dog - log
-                    lot         cog
-             
-        The idea is to use bfs and find the next step words
-        and keep searching until the endWord found.
-        To efficiently find the intermediate nodes that is
-        differ by one letter, we need to do some pre-move
-        on wordList.
-        Assume we already have the dicitoanry of pre-processed
-        wordList, this way we can access it by O(1)
-        We use a tuple of beginWord and 1, 1 represents level
-        of search, this way we can find the shortest path
-        Visited set needed to avoid loop
-        With BFS and queue, we take the first element in queue
-        curr_word
-        find all its transformation and find out its next steps
-        and add them to queue with level + 1
-        Eventually found the endWord and return path length
-        Time O(n^2 * k) n length of word, k is total number of words in input wordList
-        Space O(n^2 * k)
-        """
-        if (
-            endWord not in wordList
-            or not endWord
-            or not beginWord
-            or not wordList
-        ):
-            return 0
-        
-        n = len(beginWord)
-        # build the map of intermediate word
-        adjacent_dict = defaultdict(list)
-        for word in wordList:
-            for i in range(n):
-                adjacent_dict[word[:i] + "*" + word[i + 1:]].append(word)
-        
-        queue = collections.deque([(beginWord, 1)])
-        visited = {beginWord: True}
-        while queue:
-            current_word, level = queue.popleft()
-            for i in range(n):
-                intermediate_word = current_word[:i] + "*" + current_word[i + 1:]
-                for word in adjacent_dict[intermediate_word]:
-                    if word == endWord:
-                        return level + 1
-                    if word not in visited:
-                        visited[word] = True
-                        queue.append((word, level + 1))
-                adjacent_dict[intermediate_word] = []
-        return 0
-        
+
+
+
+
+
         
         
         
