@@ -2,7 +2,30 @@ class Solution:
     def maxCoins(self, nums: List[int]) -> int:
         """
         Bottom Up
-        
+        Define a function dp to return the maximum 
+        coins obtainable, if we burst all balloons 
+        on the interval [left, right], inclusively.
+
+        The base case is that the interval is empty,
+        which yields 0 coin.
+
+        For general cases, we iterate over every 
+        index i in [left, right], and mark the balloon 
+        at that index as the last one burst.
+
+        First, We burst all balloons expect the ith one. 
+        What we gain is:
+
+        dp(left, i - 1) + dp(i + 1, right)
+        Then, we burst the ith one:
+
+        nums[left - 1] * nums[i] * nums[right + 1]
+        Just return the maximum sum of those two among all possible is.
+
+        Finally, return dp(1, len(dp) - 2).
+
+        Do not return dp(0, len(dp) - 1) since the 
+        first and the last balloons were added by us and we cannot burst them.
         """
         # special case
         if len(nums) > 1 and len(set(nums)) == 1:
