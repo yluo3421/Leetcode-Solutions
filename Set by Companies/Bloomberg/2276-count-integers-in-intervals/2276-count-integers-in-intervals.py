@@ -42,7 +42,41 @@ class CountIntervals:
         return res
 
     
+"""
+bisect and array
+ bisect_left(list, num, beg, end) :- This function returns 
+ the position in the sorted list, where the number passed in 
+ argument can be placed so as to maintain the resultant list 
+ in sorted order. If the element is already present in the list, 
+ the leftmost position where element has to be inserted is returned. 
 
+This function takes 4 arguments, list which has to be worked with, 
+number to insert, starting position in list to consider, ending 
+position which has to be considered. 
+"""
+class CountIntervals:
+
+    def __init__(self):
+        self.arr = []
+        self.cnt = 0
+
+    def add(self, left: int, right: int) -> None:
+        pos = bisect_left(self.arr, (left, right))
+        if pos > 0: pos-=1
+        while pos<len(self.arr):
+            if left>self.arr[pos][1]:
+                pos+=1
+                continue
+            if self.arr[pos][0]>right: break
+            left = min(left, self.arr[pos][0])
+            right = max(right, self.arr[pos][1])
+            removed = self.arr.pop(pos)
+            self.cnt-=removed[1]-removed[0]+1
+        self.arr.insert(pos, (left, right))  
+        self.cnt+=right-left+1
+
+    def count(self) -> int:
+        return self.cnt
 
 # Your CountIntervals object will be instantiated and called as such:
 # obj = CountIntervals()
