@@ -87,3 +87,84 @@ class Solution:
         if neighbor_x not in range(m) and neighbor_y not in range(n):
             return False
         return True
+
+
+"""
+以下是不需要单独构建UnionFind的解法
+每次查询代表元均摊是**O(α) α代表反阿克曼函数，反阿克曼函数是渐进增长
+很慢很慢的，我们可以近似的认为每次查询是O(1)**的复杂度
+我们一共有K次操作，每次操作最多并查集查询4次，并查集合并4次,所以我
+们最终的时间复杂度是O(K)的
+
+空间复杂度
+n m是输入数组 的长和宽
+
+我们需要一个fa数组大小为nm，一个vis数组（标记该
+点有没有变成岛屿），所以空间复杂度是O(nm)
+Definition for a point.
+class Point:
+    def __init__(self, a=0, b=0):
+        self.x = a
+        self.y = b
+"""
+
+class Solution:
+    """
+    @param n: An integer
+    @param m: An integer
+    @param operators: an array of point
+    @return: an integer array
+    """
+    # 计算编号的函数
+    def calc(self, x, y, n, m):
+        return x * m + y
+    # 寻找代表元的函数
+    def find(self, fa, x):
+        # x是代表元，直接返回
+        if (x == fa[x]):
+            return x
+        # x不是代表元，寻找x的父亲的代表元是谁，并且直接把代表元赋值给x的父亲，进行路径压缩
+        else:
+            fa[x] = self.find(fa, fa[x])
+            return fa[x]
+    def numIslands2(self, n, m, operators):
+        # write your code here
+        # 父亲数组和标记点i有没有已经变成岛屿的数组
+        fa = []
+        visited = {}
+        ans = []
+        # 初始化fa数组和vis数组 和答案数组
+        for i in range(n):
+            for j in range(m):
+                fa.append(self.calc(i, j, n, m))
+                visited[self.calc(i, j, n, m)] = False
+        cnt = 0
+        zx = [0, 0, 1, -1]
+        zy = [1, -1, 0, 0]
+        for op in operators:
+            x = op.x
+            y = op.y
+            # x y点的编号
+            idx = self.calc(x, y, n, m)
+            if visited[idx] != True:
+                cnt += 1
+                for k in range(4):
+                    nx = x + zx[k]
+                    ny = y + zy[k]
+                    # nx ny点的编号
+                    nidx = self.calc(nx, ny, n, m)
+                    #  判断往四周走有没有走越界，或者走到海洋里，越界或者走到海洋都是没有的状态
+                    if (nx < 0 or nx >= n or ny < 0 or ny >= m or visited[nidx] == False):
+                        continue
+                    # 判断四周的岛屿是不是和当前第i次操作的岛屿 已经在一个集合了
+                    # 如果不是在一个集合里，那么i j所在的两个集合就是连通的，可以合并算为一个集合,然后让岛屿数量-1。
+                    # 我们只要让i所在集合的代表元改为j所在集合的代表元就完成了合并操作
+                    if (self.find(fa, idx) != self.find(fa, nidx)):
+                        cnt -= 1
+                        fa[self.find(fa, idx)] = self.find(fa, nidx)
+                # 标记它已经是个岛屿了
+                visited[idx] = 1
+                ans.append(cnt)
+            else:
+                ans.append(cnt)
+        return ans
