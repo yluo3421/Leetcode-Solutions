@@ -20,6 +20,16 @@ That largest is always replaced with a value at most half of itself.
         the array, excluding the largest
         To prove the first point, we know that largest is always
         bigger than rest. Because if it wasn't, 
+        
+        Because largest > rest, we know that x is at most largest - rest. i.e. the modulus will cause rest to be subtracted at least once.
+
+If rest is at least half the size of largest, then this will clearly chop largest in half.
+
+If instead rest is less than half the size of largest, then largest % rest must be less than half of largest.
+
+Removing 1/4 each time is logarithmic.
+
+One edge case we need to be cautious of is where rest is 1. When we take numbers modulo 1, they always become 0. The only case this can occur is where n = 2n=2. In fact though, we know that this case is always doable, because largest is simply decremented by 1 repeatedly until it reaches 1 itself.
         """
         
         # Handle the n = 1 case.
