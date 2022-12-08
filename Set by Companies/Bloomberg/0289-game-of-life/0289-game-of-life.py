@@ -44,7 +44,7 @@ While computing the results of the rules, use the copy board and apply the resul
         
         
         """
-        class Solution:
+class Solution:
     def gameOfLife(self, board: List[List[int]]) -> None:
         """
         Do not return anything, modify board in-place instead.
