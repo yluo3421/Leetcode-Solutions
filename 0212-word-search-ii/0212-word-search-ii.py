@@ -62,4 +62,9 @@ During the recursive function call backtracking(cell), we explore the neighbor c
                 if board[row][col] in trie:
                     backtracking(row, col, trie)
         
-        return matchedWords    
+        return matchedWords   
+    """
+    The idea is motivated by the fact that the time complexity of the overall algorithm sort of depends on the size of the Trie. For a leaf node in Trie, once we traverse it (i.e. find a matched word), we would no longer need to traverse it again. As a result, we could prune it out from the Trie.
+    
+    Gradually, those non-leaf nodes could become leaf nodes later, since we trim their children leaf nodes. In the extreme case, the Trie would become empty, once we find a match for all the words in the dictionary. This pruning measure could reduce up to 50\%50% of the running time for the test cases of the online judge.
+    """
