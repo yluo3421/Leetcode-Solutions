@@ -1,6 +1,18 @@
 class Solution:
     def largestOverlap(self, A: List[List[int]], B: List[List[int]]) -> int:
+        """
+        As stated in the problem description, in order to calculate the number of ones in the overlapping zone, we should first shift one of the images. Once the image is shifted, it is intuitive to count the numbers.
+        
+        Therefore, a simple idea is that one could come up all possible overlapping zones, by shifting the image matrix, and then simply count within each overlapping zone.
+        
+        Based on the above intuition, we could implement the solution step by step. First we define the function shift_and_count(x_shift, y_shift, M, R) where we shift the matrix M with reference to the matrix R with the shifting coordinate (x_shift, y_shift) and then we count the overlapping ones in the overlapping zone.
 
+The algorithm is organized as a loop over all possible combinations of shifting coordinates (x_shift, y_shift).
+
+More specifically, the ranges of x_shift and y_shift are both [0, N-1] where NN is the width of the matrix.
+
+At each iteration, we invoke the function shift_and_count() twice to shift and count the overlapping zone, first with the matrix B as the reference and vice versa.
+        """
         dim = len(A)
 
         def shift_and_count(x_shift, y_shift, M, R):
