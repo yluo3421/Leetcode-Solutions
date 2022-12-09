@@ -1,6 +1,29 @@
 class Solution:
     def checkPossibility(self, nums: List[int]) -> bool:
         """
+        Second method
+        As before, let pp be the unique problem index for which A[p]>A[p+1]. If this is not unique or doesn't exist, the answer is False or True respectively. We analyze the following cases:
+
+If p = 0, then we could make the array good by setting A[p] = A[p+1].
+If p = len(A) - 2, then we could make the array good by setting A[p+1] = A[p].
+Otherwise, A[p-1], A[p], A[p+1], A[p+2] all exist, and:
+We could change A[p] to be between A[p-1] and A[p+1] if possible, or;
+We could change A[p+1] to be between A[p] and A[p+2] if possible
+
+
+        """
+
+        p = None
+        for i in range(len(nums) - 1):
+            if nums[i] > nums[i+1]:
+                if p is not None:
+                    return False
+                p = i
+
+        return (p is None or p == 0 or p == len(nums)-2 or
+                nums[p-1] <= nums[p+1] or nums[p] <= nums[p+2])
+        
+        """
         The criteria is to modify one number
         O(n^2)
         
@@ -27,29 +50,4 @@ For each possible change A[i], check if the sequence is monotone increasing. We'
             new[i] = old_numsi
 
         return False
-        """
-        Second method
-        Consider the interval [i, j] corresponding to the subarray [A[i], A[i+1], ..., A[j]]. When A[i]≤A[i+1]≤A[i+2], we know we do not need to modify A[i], and we can consider solving the problem on the interval [i+1, j] instead. We use a similar approach for jj.
-
-Afterwards, with the length of the interval under consideration being j - i + 1, if the interval has size 2 or less, then we did not find any problem.
-
-If our interval under consideration has 5 or more elements, then there are two disjoint problems that cannot be fixed with one replacement.
-
-Otherwise, our problem size is now at most 4 elements, which we can easily brute force.
-
-
-        """
-
-        i, j = 0, len(nums) - 1
-        while i+2 < len(nums) and nums[i] <= nums[i+1] <= nums[i+2]:
-            i += 1
-        while j-2 >= 0 and nums[j-2] <= nums[j-1] <= nums[j]:
-            j -= 1
-
-        if j - i + 1 <= 2:
-            return True
-        if j - i + 1 >= 5:
-            return False
-
-        return brute_force(nums[i: j+1])
         
