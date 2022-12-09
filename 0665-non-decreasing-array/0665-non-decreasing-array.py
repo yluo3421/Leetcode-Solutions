@@ -2,6 +2,7 @@ class Solution:
     def checkPossibility(self, nums: List[int]) -> bool:
         """
         Second method
+        O(n)
         As before, let pp be the unique problem index for which A[p]>A[p+1]. If this is not unique or doesn't exist, the answer is False or True respectively. We analyze the following cases:
 
 If p = 0, then we could make the array good by setting A[p] = A[p+1].
