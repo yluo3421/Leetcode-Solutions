@@ -2,22 +2,12 @@ class MyHashSet:
 
     def __init__(self):
         """
-        An array with traversal of O(n) can do the trick
-        but all methods average O(n)
-        To make O(1), we need to hash each key into an index
-        If two different keys has same hash_index, traverse
-        the bucket at the array[hash_index]
-        As long as the hash is big enough, these operations
-        can be O(1) average. 
-        So I'd like to use the array as a container for all buckets
-        where bucket will have index as the hash value of key
-        And the bucket at array[hash_index] will store it
-        The optimal length of  array should be about 1.3 times
-        of actual number of keys to be stored and it should 
-        be a prime number.
-        Since the question gave us constraint that key is less than 10^6
-        The prime should be larger than 130000, and the 
-        prime is 130003.
+        
+        The prime should be larger than 1300000, and the 
+        prime is 1300003.
+        The idea is not to hash each key but use them directly
+        as the index, and the array will store Ture or False to show
+        if the current key exists in the set
         """
         self.array = [False] * 1300003
         

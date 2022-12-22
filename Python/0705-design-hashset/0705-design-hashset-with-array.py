@@ -16,8 +16,11 @@ class MyHashSet:
         of actual number of keys to be stored and it should 
         be a prime number.
         Since the question gave us constraint that key is less than 10^6
-        The prime should be larger than 130000, and the 
-        prime is 130003.
+        The prime should be larger than 1300000, and the 
+        prime is 1300003.
+
+        There are two way to implement from here
+        please check files in the same folder for boolean and bucket
         """
         self.array = []
         
