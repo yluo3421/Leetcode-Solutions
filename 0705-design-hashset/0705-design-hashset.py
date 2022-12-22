@@ -3,7 +3,8 @@ class MyHashSet(object):
 
     def __init__(self):
         """
-        Initialize your data structure here.
+        O(n/k) where k is keyRange
+        With large enough keyRange, this will become O(1)
         """
         self.keyRange = 13003
         self.bucketArray = [Bucket() for i in range(self.keyRange)]
