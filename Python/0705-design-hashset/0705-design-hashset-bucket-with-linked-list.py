@@ -74,6 +74,18 @@ class Bucket:
                 return True
             curr = curr.next
         return False
+    """
+    This method has one problem that when a bucket is filled
+    with lots of keys, we still need to traverse the bucket.
+    The solution is to maintain a sorted list.
+    With sorted list, we can use binary search to find the value
+    and this will improve the traverse to O(log(m)) where m is 
+    bucket size.
+    But binary search performing on an array will cause another
+    issue, that each update to the element in the bucket array
+    will be O(m) (re-indexing).
+    Here comes BST. Check the method using BST
+    """
 
 
 # Your MyHashSet object will be instantiated and called as such:
