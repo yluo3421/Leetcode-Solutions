@@ -1,18 +1,25 @@
--- SELECT column_name FROM table_name
+SELECT * FROM actor;
+-- actor_id, first_name, last_name, last_update
 
--- SELECT multiple columns with the sequence
-SELECT c1, c3, c2 FROM table_1
+SELECT first_name FROM actor;
 
--- SELECT all columns
-SELECT * FROM table_2
+-- CHALLENGE
+-- Use a SELECT statement to grab the first and last names of every customer and their email address
+SELECT first_name, last_name, email FROM customer;
 
 -- SELECT DISTINCT
+SELECT DISTINCT release_year FROM film;
 
--- SELECT connected tables
-SELECT
-t1.student_name
-,t1.phone
-,t2.hometown
-,t2.address
-FROM students t1 LEFT JOIN enrollments t2
-ON t1.id = t2.student_id;
+-- SELECT COUNT
+SELECT COUNT(name_1) FROM table_1;
+-- returan number of rows in the table
+-- below return the same things
+SELECT COUNT(*) FROM table_1;
+SELECT COUNT(col_1) FROM table_1;
+
+-- How many unique names in the table?
+SELECT COUNT(DISTINCT name_1) FROM table_1
+-- this returns 3, it wont tell what are the distinct names
+
+
+
