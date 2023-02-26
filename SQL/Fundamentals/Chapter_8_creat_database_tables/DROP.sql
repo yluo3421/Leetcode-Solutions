@@ -1,0 +1,5 @@
+ALTER TABLE table_1
+DROP COLUMN IF EXISITS col_1;
+
+ALTER TABLE new_info
+DROP COLUMN people;
