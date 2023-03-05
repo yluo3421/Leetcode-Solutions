@@ -1,0 +1,3 @@
+-- IMPORT DOES NOT create a table for you
+-- It assumes a table is already created.
+-- No automated way within pgAdmin to create a table directly from a .csv file.
