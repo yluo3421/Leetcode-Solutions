@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "DOM",
+      "ES6",
+      "ES2015"
+    ],
+    "target": "ES2019",
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}
